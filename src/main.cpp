@@ -22,6 +22,7 @@
 // ================
 
 // LOOK-2.1 LOOK-2.3 - toggles for UNIFORM_GRID and COHERENT_GRID
+// naive=(0,0) scattered=(1,0) coherent=(1,1)
 #define VISUALIZE 1
 #define UNIFORM_GRID 0
 #define COHERENT_GRID 0
@@ -119,6 +120,16 @@ bool init(int argc, char **argv) {
 
   // Initialize N-body simulation
   Boids::initSimulation(N_FOR_VIS);
+
+#if UNIFORM_GRID && COHERENT_GRID
+  std::cout << "[cfg] mode=coherent" << std::endl;
+#elif UNIFORM_GRID
+  std::cout << "[cfg] mode=scattered" << std::endl;
+#else
+  std::cout << "[cfg] mode=naive" << std::endl;
+#endif
+  std::cout << "[cfg] N=" << N_FOR_VIS
+            << " VISUALIZE=" << VISUALIZE << std::endl;
 
   updateCamera();
 
