@@ -21,22 +21,22 @@
 #define ZERO_ABSORPTION_EPSILON     0.00001
 
 namespace utilityCore {
-extern float clamp(float f, float min, float max);
-extern bool replaceString(std::string& str, const std::string& from, const std::string& to);
-extern glm::vec3 clampRGB(glm::vec3 color);
-extern bool epsilonCheck(float a, float b);
-extern std::vector<std::string> tokenizeString(std::string str);
-extern cudaMat4 glmMat4ToCudaMat4(const glm::mat4 &a);
-extern glm::mat4 cudaMat4ToGlmMat4(const cudaMat4 &a);
-extern glm::mat4 buildTransformationMatrix(glm::vec3 translation, glm::vec3 rotation, glm::vec3 scale);
-extern void printCudaMat4(const cudaMat4 &m);
-extern std::string convertIntToString(int number);
-extern std::istream& safeGetline(std::istream& is, std::string& t); //Thanks to http://stackoverflow.com/a/6089413
+float clamp(float f, float min, float max);
+bool replaceString(std::string& str, const std::string& from, const std::string& to);
+glm::vec3 clampRGB(glm::vec3 color);
+bool epsilonCheck(float a, float b);
+std::vector<std::string> tokenizeString(std::string str);
+cudaMat4 glmMat4ToCudaMat4(const glm::mat4 &a);
+glm::mat4 cudaMat4ToGlmMat4(const cudaMat4 &a);
+glm::mat4 buildTransformationMatrix(glm::vec3 translation, glm::vec3 rotation, glm::vec3 scale);
+void printCudaMat4(const cudaMat4 &m);
+std::string convertIntToString(int number);
+std::istream& safeGetline(std::istream& is, std::string& t); //Thanks to http://stackoverflow.com/a/6089413
 
 //-----------------------------
 //-------GLM Printers----------
 //-----------------------------
-extern void printMat4(const glm::mat4 &);
-extern void printVec4(const glm::vec4 &);
-extern void printVec3(const glm::vec3 &);
+void printMat4(const glm::mat4 &);
+void printVec4(const glm::vec4 &);
+void printVec3(const glm::vec3 &);
 }

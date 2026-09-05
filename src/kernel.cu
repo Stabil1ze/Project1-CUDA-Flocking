@@ -173,6 +173,13 @@ void Boids::initSimulation(int N) {
   cudaMalloc((void**)&dev_vel2, N * sizeof(glm::vec3));
   checkCUDAErrorWithLine("cudaMalloc dev_vel2 failed!");
 
+  // Initialize velocity to 0
+  cudaMemset(dev_vel1, 0, N * sizeof(glm::vec3));
+  checkCUDAErrorWithLine("cudaMemset dev_vel1 failed!");
+
+  cudaMemset(dev_vel2, 0, N * sizeof(glm::vec3));
+  checkCUDAErrorWithLine("cudaMemset dev_vel2 failed!");
+
   // LOOK-1.2 - This is a typical CUDA kernel invocation.
   kernGenerateRandomPosArray<<<fullBlocksPerGrid, blockSize>>>(1, numObjects,
     dev_pos, scene_scale);
